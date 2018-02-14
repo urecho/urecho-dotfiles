@@ -1,0 +1,12 @@
+---
+
+- hosts: all
+  roles:
+    - { role: system, become: "{{ need_sudo }}", tags: ['system'] }
+    - { role: packages-cli, become: "{{ need_sudo }}", tags: ['packages'] }
+    - { role: packages-gui, become: "{{ need_sudo }}", tags: ['packages'] }
+    - { role: zsh, tags: ['zsh'] }
+    - { role: tmux, tags: ['tmux'] }
+    - { role: vim, tags: ['vim'] }
+    - { role: git, tags: ['git'] }
+

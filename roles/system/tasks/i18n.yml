@@ -1,0 +1,41 @@
+---
+
+- name: Generate locale
+  locale_gen: name=ko_KR.UTF-8 state=present
+
+- name: Install fonts
+  package: name={{ item }} state=latest
+  with_items:
+    - adobe-source-han-sans-kr-fonts
+    - adobe-source-han-serif-kr-fonts
+
+- name: Install pacaur
+  package: name={{ item }} state=latest
+  with_items:
+    - base-devel
+    - pacaur
+
+- name: Install fonts from aur
+  pacaur: name={{ item }} state=present
+  with_items:
+    #- spoqa-han-sans
+    #- ttf-d2coding
+    #- ttf-nanum
+    - ttf-nanumgothic_coding
+
+- name: Install IBus
+  package: name={{ item }} state=latest
+  with_items:
+    - ibus
+    - ibus-hangul
+
+- name: IBus config
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.xprofile"
+    line: "{{ item }}"
+  with_items:
+    - "export GTK_IM_MODULE=ibus"
+    - "export XMODIFIERS=@im=ibus"
+    - "export QT_IM_MODULE=ibus"
+    - "ibus-daemon -drx"
+

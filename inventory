@@ -1,0 +1,14 @@
+localhost
+urecho-nuc6i7kyk ansible_connection=ssh ansible_user=urecho
+urecho-xps13-9350 ansible_connection=ssh ansible_user=urecho
+yoon-rmbp13 ansible_connection=ssh ansible_user=yoon
+
+[arch]
+urecho-nuc6i7kyk
+
+[debian]
+urecho-xps13-9350
+
+[macos]
+yoon-rmbp13
+

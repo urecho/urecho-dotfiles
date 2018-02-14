@@ -1,0 +1,11 @@
+---
+
+- name: vimrc
+  copy: src=vimrc dest={{ ansible_env.HOME }}/.vimrc backup=yes
+
+- name: set up vundle
+  git: repo=https://github.com/VundleVim/Vundle.vim.git dest={{ ansible_env.HOME }}/.vim/bundle/Vundle.vim
+
+- name: install plugins
+  shell: vim +PluginInstall +qall
+

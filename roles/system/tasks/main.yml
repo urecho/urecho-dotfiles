@@ -1,0 +1,14 @@
+---
+
+- name: Debug variables
+  debug:
+    var: need_sudo
+    verbosity: 0
+
+- name: System Control
+  include_tasks: systemctl.yml
+
+- name: Internationalization
+  include_tasks: i18n.yml
+  when: ansible_os_family == 'Archlinux'
+

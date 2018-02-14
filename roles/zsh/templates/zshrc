@@ -1,0 +1,45 @@
+# Path to your oh-my-zsh installation.
+export ZSH=~/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+ZSH_THEME="ys"
+
+# Uncomment the following line to use case-sensitive completion.
+CASE_SENSITIVE="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git git-flow github alias-tips mvn colorize colored-man-pages tmux tmuxinator vi-mode docker brew osx sublime zsh-syntax-highlighting jsontools zsh-autosuggestions zsh-syntax-highlighting)
+
+# User configuration
+export LESSCHARSET=utf-8
+
+# Preferred editor for local and remote sessions
+export EDITOR=vim
+
+# Key binding
+bindkey -v
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey "\e\e[D" backward-word
+bindkey "\e\e[C" forward-word
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+alias mv='mv -i'
+alias cp='cp -i'
+alias weather='curl wttr.in'
+alias cb='xclip -sel clip'
+
+source $ZSH/oh-my-zsh.sh
+

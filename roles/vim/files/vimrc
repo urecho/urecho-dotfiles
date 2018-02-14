@@ -1,0 +1,167 @@
+" Plugins
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Bundle 'tpope/vim-sensible'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-repeat'
+Bundle 'nanotech/jellybeans.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Bundle 'kien/ctrlp.vim'
+Bundle 'rking/ag.vim'
+Bundle 'kana/vim-textobj-user'
+Bundle 'slim-template/vim-slim'
+Plugin 'Command-T'
+Plugin 'AutoComplPop'
+Plugin 'taglist-plus'
+Plugin 'L9'
+Plugin 'vim-scala'
+Plugin 'VimClojure'
+Plugin 'Splice'
+Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'workflowish'
+Plugin 'junegunn/fzf', { 'dir': '/usr/local/opt/fzf', 'do': './install --all' }
+Plugin 'terryma/vim-smooth-scroll'
+Plugin 'mbbill/undotree'
+Plugin 'Yggdroot/indentLine'
+Plugin 'jiangmiao/auto-pairs'
+"Bundle 'ucompleteme'
+"Plugin 'Valloric/YouCompleteMe'
+
+call vundle#end()
+
+
+" General
+filetype plugin indent on    " load filetype-specific indent files
+syntax enable                " enable syntax processing
+colorscheme desert           " awesome colorscheme
+let mapleader=","            " change the mapleader from \ to ,
+let g:mapleader=","            " change the mapleader from \ to ,
+
+" keymap
+nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <silent> <C-n> :NERDTreeToggle<CR>
+nnoremap <silent> <F5> :UndotreeToggle<cr>
+nnoremap <silent> <F8> :TlistUpdate<CR> :TlistToggle<CR>
+" JSON formatting
+nnoremap <Leader>j :%!python -m json.tool<CR>
+" smooth scroll
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+" buffer moving
+nnoremap <leader>l :ls<CR>
+nnoremap <leader>p :bp<CR>
+nnoremap <leader>n :bn<CR>
+" Fast saving
+nnoremap <leader>w :w!<CR>
+
+
+let NERDTreeWinPos = "left"                  " NERD Tree를 왼쪽에 생성
+let Tlist_Ctags_Cmd = "/usr/local/bin/ctags" " Tag list가 사용하는 ctags의 경로 설정
+let Tlist_Use_Right_Window = 1               " Tag list 창을 오른쪽으로 생성
+let Tlist_Inc_Winwidth = 0
+let Tlist_Exit_OnlyWindow = 0
+let Tlist_Auto_Open = 0
+let Tlist_GainFocus_On_ToggleOpen = 1
+let vim_markdown_preview_github=1            " github style markdown preview
+
+" Settings
+set tenc=utf-8                 " 터미널 인코딩
+set encoding=utf-8             " 파일저장인코딩
+set fileencoding=utf-8         " 파일저장인코딩
+set fileencodings=utf-8,cp949  " 파일저장인코딩
+set nobackup                   " 백업 파일을 안만듬
+set noswapfile
+set novisualbell               " 키를 잘못눌렀을 때 화면 프레시
+set noerrorbells               " dont't beep
+set ruler                      " 화면 우측 하단에 현재 커서의 위치(줄,칸) 표시
+set autoread                   " Set to auto read when a file is changed from the outside
+set linebreak
+set history=1000               " remember more commands and search history
+set undolevels=1000            " use many muchos levels of undo
+set background=dark            " 하이라이팅 lihgt / dark
+set clipboard=unnamed
+set title                      " change the terminal's title
+set mouse=a
+set imdisable
+set noimd
+set pastetoggle=<F2>
+set hidden
+set scrolloff=5                 " scroll offset
+" Editing
+set wrap                        " wrap lines
+set backspace=eol,start,indent  " allow backspacing over everything in insert mode
+set nojoinspaces                " J 명령어로 줄을 붙일 때 마침표 뒤에 한칸만 띔
+" UI
+set number              " show line numbers
+set norelativenumber    " show relative line numbers
+set showcmd             " show command in bottom bar
+set wildmenu            " visual autocomplete for command menu
+set lazyredraw          " redraw only when we need to.
+set showmatch           " highlight matching [{()}]
+set nocursorline        " highlight current line => slow!
+" Searching
+set ignorecase          " case insensitive
+set smartcase           " ignore case if search pattern is all lowercase, case-sensitive otherwise
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
+set nowrapscan          " 검색할 때 문서의 끝에서 처음으로 안돌아감
+" Indenting
+set tabstop=4           " number of visual spaces per TAB
+set softtabstop=4       " number of spaces in tab when editing
+set shiftwidth=4        " indenting is 4 spaces
+set expandtab           " tabs are spaces
+set autoindent          " turns it on
+set copyindent          " copy the previous indentation on autoindenting
+set smartindent         " does the right thing (mostly) in programs
+set cindent             " stricter rules for C programs
+" Folding
+set foldenable          " enable folding
+set foldlevelstart=10   " open most folds by default
+set foldnestmax=10      " 10 nested fold max
+set foldmethod=indent   " fold based on indent level
+
+
+" ESC키를 누르면 한글 모드가 해제 "
+" 입력모드에서 이전 언어 설정 모드 유지 "
+" inoremap <ESC> <ESC>:set imdisable<CR>
+" nnoremap i :set noimd<CR>i
+" nnoremap I :set noimd<CR>I
+" nnoremap a :set noimd<CR>a
+" nnoremap A :set noimd<CR>A
+" nnoremap o :set noimd<CR>o
+" nnoremap O :set noimd<CR>O    
+
+
+
+" allows cursor change in tmux mode
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+" Persistent undo
+if has("persistent_undo")
+    set undodir=~/.undodir/
+    set undofile
+endif
+
+" airline
+let g:airline#extensions#tabline#enabled = 1
+

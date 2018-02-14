@@ -1,0 +1,8 @@
+---
+
+- name: System Daemons
+  systemd: name={{ item }} state=started enabled=yes
+  with_items:
+    - sshd
+    - ufw
+

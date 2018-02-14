@@ -1,0 +1,14 @@
+---
+
+- name: Install diff-so-fancy
+  package:
+    name: diff-so-fancy
+    state: latest
+  become: "{{ need_sudo }}"
+
+- name: gitconfig
+  copy: src=gitconfig dest={{ ansible_env.HOME }}/.gitconfig backup=yes
+
+- name: gitignore
+  copy: src=gitignore_global dest={{ ansible_env.HOME }}/.gitignore_global backup=yes
+

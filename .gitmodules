@@ -1,0 +1,3 @@
+[submodule "library/pacaur"]
+	path = library/pacaur
+	url = https://github.com/sanderboom/ansible-pacaur.git

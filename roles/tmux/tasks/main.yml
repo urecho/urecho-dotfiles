@@ -1,0 +1,22 @@
+---
+
+- name: tmux.conf
+  template: src=tmux.conf dest={{ ansible_env.HOME }}/.tmux.conf backup=yes
+
+- name: tmuxinator directory
+  file: path={{ ansible_env.HOME }}/.tmuxinator state=directory
+
+- name: tmuxinator
+  copy: src=tmuxinator/{{ item }}.yml dest={{ ansible_env.HOME }}/.tmuxinator/ backup=yes
+  with_items:
+    - urecho-ansible
+
+- name: clone tmux plugin manager
+  git: repo=https://github.com/tmux-plugins/tpm
+       dest={{ ansible_env.HOME }}/.tmux/plugins/tpm
+
+- name: install plugins
+  shell: "{{ ansible_env.HOME }}/.tmux/plugins/tpm/bin/install_plugins"
+  environment:
+    PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
+

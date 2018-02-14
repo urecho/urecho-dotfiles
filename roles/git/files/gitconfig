@@ -1,0 +1,40 @@
+[user]
+    name = Yoonseok Woo
+    email = urecho@gmail.com
+[core]
+    pager = diff-so-fancy | less -rFX
+    excludesfile = ~/.gitignore_global
+[push]
+    default = simple
+[alias]
+    last = log -p -1 HEAD
+    history = log --follow --patch -- 
+    sync = !git fetch --all --prune && git checkout master && git pull origin master && git checkout develop && git pull origin develop
+[merge]
+    tool = vimdiff
+[diff]
+    compactionHeuristic = true
+[interactive]
+    diffFilter = diff-so-fancy
+[color]
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = true
+    pager = true
+[tig]
+    show-changes = true
+    refresh-mode = periodic # Enum: manual, auto, after-command, periodic
+    refresh-interval = 1
+[color "diff-highlight"]
+    oldNormal    = "red bold"
+    oldHighlight = "red bold 52"
+    newNormal    = "green bold"
+    newHighlight = "green bold 22"
+[color "diff"]
+    meta       = "yellow"
+    frag       = "magenta bold"
+    commit     = "yellow bold"
+    old        = "red bold"
+    new        = "green bold"
+    whitespace = "red reverse"

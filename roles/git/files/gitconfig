@@ -26,6 +26,8 @@
     show-changes = true
     refresh-mode = periodic # Enum: manual, auto, after-command, periodic
     refresh-interval = 1
+    status-show-untracked-dirs = true
+    status-show-untracked-files = true
 [color "diff-highlight"]
     oldNormal    = "red bold"
     oldHighlight = "red bold 52"

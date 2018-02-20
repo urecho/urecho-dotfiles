@@ -1,2 +1,2 @@
 #!/bin/bash -ex
-ansible-playbook site.yml --limit ${1:-localhost}
+ansible-playbook site.yml --limit ${1:-localhost} --tags $2

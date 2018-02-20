@@ -1,3 +1,4 @@
 ---
 need_sudo: no
 zsh_path: /usr/local/bin/zsh
+gem_executable: /usr/local/bin/gem

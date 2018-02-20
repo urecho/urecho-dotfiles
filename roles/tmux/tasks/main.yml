@@ -4,6 +4,12 @@
   template: src=tmux.conf dest={{ ansible_env.HOME }}/.tmux.conf backup=yes
   register: tmux_conf
 
+- name: install tmuxinator
+  gem:
+    name: tmuxinator
+    state: latest
+    executable: "{{ gem_executable }}"
+
 - name: tmuxinator directory
   file: path={{ ansible_env.HOME }}/.tmuxinator state=directory
 

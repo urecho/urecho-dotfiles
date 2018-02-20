@@ -2,6 +2,7 @@
 
 - name: tmux.conf
   template: src=tmux.conf dest={{ ansible_env.HOME }}/.tmux.conf backup=yes
+  register: tmux_conf
 
 - name: tmuxinator directory
   file: path={{ ansible_env.HOME }}/.tmuxinator state=directory
@@ -19,4 +20,5 @@
   shell: "{{ ansible_env.HOME }}/.tmux/plugins/tpm/bin/install_plugins"
   environment:
     PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
+  when: tmux_conf.changed
 

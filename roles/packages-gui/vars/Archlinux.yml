@@ -1,0 +1,10 @@
+---
+chromium: chromium
+vlc: 
+  - vlc
+  - qt4
+steam: steam-native
+virtualbox: 
+  - virtualbox
+  - linux414-virtualbox-host-modules
+

@@ -1,10 +1,5 @@
 ---
 
-- name: Debug variables
-  debug:
-    var: need_sudo
-    verbosity: 0
-
 - name: System Control
   include_tasks: systemctl.yml
 

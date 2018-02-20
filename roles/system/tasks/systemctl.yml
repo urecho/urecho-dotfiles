@@ -5,4 +5,5 @@
   with_items:
     - sshd
     - ufw
+  when: ansible_os_family != 'Darwin'
 

@@ -1,6 +1,14 @@
 ---
 
 - hosts: all
+  pre_tasks:
+    - debug:
+        var: "{{ item }}"
+        verbosity: 0
+      with_items:
+        - need_sudo
+        - zsh_path
+
   roles:
     - { role: system, become: "{{ need_sudo }}", tags: ['system'] }
     - { role: packages-cli, become: "{{ need_sudo }}", tags: ['packages'] }

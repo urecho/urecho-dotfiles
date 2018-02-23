@@ -36,6 +36,7 @@ Plugin 'terryma/vim-smooth-scroll'
 Plugin 'mbbill/undotree'
 Plugin 'Yggdroot/indentLine'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'vimwiki/vimwiki'
 "Bundle 'ucompleteme'
 "Plugin 'Valloric/YouCompleteMe'
 
@@ -164,4 +165,13 @@ endif
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
+
+" vimwiki
+let wiki = {}
+let wiki.path = '~/vimwiki/'
+let wiki.syntax = 'markdown'
+let wiki.ext = '.md'
+
+let g:vimwiki_list = [wiki]
+let g:vimwiki_conceallevel = 0
 

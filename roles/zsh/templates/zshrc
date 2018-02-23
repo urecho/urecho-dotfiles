@@ -15,6 +15,7 @@ CASE_SENSITIVE="true"
 plugins=(git git-flow github alias-tips mvn colorize colored-man-pages tmux tmuxinator vi-mode docker brew osx sublime zsh-syntax-highlighting jsontools zsh-autosuggestions zsh-syntax-highlighting)
 
 # User configuration
+export LANG=en_US.UTF-8
 export LESSCHARSET=utf-8
 
 # Preferred editor for local and remote sessions

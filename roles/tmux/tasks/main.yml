@@ -1,5 +1,12 @@
 ---
 
+- name: Install Packages For Tmux
+  package: name={{ item }} state=latest
+  with_items:
+    - ruby
+    - tmux
+  become: "{{ need_sudo }}"
+
 - name: tmux.conf
   template: src=tmux.conf dest={{ ansible_env.HOME }}/.tmux.conf backup=yes
   register: tmux_conf

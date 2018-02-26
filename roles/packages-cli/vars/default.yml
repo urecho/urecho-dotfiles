@@ -1,11 +1,19 @@
 ---
-tmux: tmux
-git: git
-vim: vim
+system_monitor:
+  - lsof
+  - htop
+  - iotop
+  - iftop
+utils:
+  - tmux
+  - git
+  - vim
+  - vifm
 dev_java:
   - jdk8-openjdk
   - openjdk8-doc
   - openjdk8-src
   - visualvm
   - maven
+
 

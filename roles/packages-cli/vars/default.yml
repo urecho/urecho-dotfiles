@@ -4,6 +4,8 @@ system_monitor:
   - htop
   - iotop
   - iftop
+  - sysstat
+  - nmon
 utils:
   - tmux
   - git

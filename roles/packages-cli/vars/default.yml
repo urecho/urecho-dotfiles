@@ -2,4 +2,10 @@
 tmux: tmux
 git: git
 vim: vim
+dev_java:
+  - jdk8-openjdk
+  - openjdk8-doc
+  - openjdk8-src
+  - visualvm
+  - maven
 

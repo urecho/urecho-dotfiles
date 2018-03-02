@@ -25,7 +25,7 @@ $ sudo systemctl start sshd
 $ ssh-copy-id `hostname`
 ```
 
-- fetch submodule
+- clone this repo
 ```
 git clone git@github.com:urecho/urecho-dotfiles.git dotfiles
 cd dotfiles

@@ -1,2 +1,3 @@
 #!/bin/bash -ex
-ansible-playbook site.yml --limit ${1:-localhost} --tags $2
+ARGS=$([ -n "$1" ] && echo "--tags $1" || echo "")
+ansible-playbook site.yml $ARGS

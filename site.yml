@@ -9,7 +9,6 @@
         - need_sudo
         - zsh_path
         - gem_executable
-
   roles:
     - { role: system, become: "{{ need_sudo }}", tags: ['system'] }
     - { role: packages-cli, become: "{{ need_sudo }}", tags: ['packages'] }

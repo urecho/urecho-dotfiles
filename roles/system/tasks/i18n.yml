@@ -39,3 +39,14 @@
     - "export QT_IM_MODULE=ibus"
     - "ibus-daemon -drx"
 
+- name: Add korean input method
+  dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    state: present
+  become: no
+  with_items:
+      - { key: "/desktop/ibus/general/preload-engines", value: "['hangul']"}
+      - { key: "/org/gnome/desktop/input-sources/sources", value: "[('ibus', 'hangul'), ('xkb', 'us')]"}
+      - { key: "/org/gnome/desktop/interface/gtk-im-module", value: "'ibus'"}
+

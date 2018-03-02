@@ -17,5 +17,6 @@ dev_java:
   - openjdk8-src
   - visualvm
   - maven
+  - intellij-idea-community-edition
 
 

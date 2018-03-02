@@ -1,0 +1,17 @@
+--- 
+
+- name: install required package
+  package:
+    name: python2-psutil
+    state: latest
+
+- name: Configure desktop environments
+  dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    state: present
+  become: no
+  with_items:
+      - { key: "/org/gnome/desktop/input-sources/xkb-options", value: "['caps:ctrl_modifier']"}
+      - { key: "/org/gnome/desktop/interface/text-scaling-factor", value: "1.25" }
+

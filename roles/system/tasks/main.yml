@@ -7,3 +7,7 @@
   include_tasks: i18n.yml
   when: ansible_os_family == 'Archlinux'
 
+- name: Desktop environments
+  include_tasks: desktop.yml
+  when: ansible_os_family != 'Darwin'
+  

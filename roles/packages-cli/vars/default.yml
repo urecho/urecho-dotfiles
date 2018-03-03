@@ -18,5 +18,7 @@ dev_java:
   - visualvm
   - maven
   - intellij-idea-community-edition
-
+dev_misc:
+  - clojure
+  - dbeaver
 

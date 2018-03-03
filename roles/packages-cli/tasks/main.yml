@@ -23,4 +23,5 @@
     - "{{ system_monitor }}"
     - "{{ utils }}"
     - "{{ dev_java }}"
+    - "{{ dev_misc }}"
 

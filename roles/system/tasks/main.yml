@@ -3,6 +3,11 @@
 - name: System Control
   include_tasks: systemctl.yml
 
+- name: install required package
+  package:
+    name: python-psutil
+    state: latest
+
 - name: Internationalization
   include_tasks: i18n.yml
   when: ansible_os_family == 'Archlinux'

@@ -1,4 +1,4 @@
-urecho-nuc6i7kyk ansible_connection=ssh ansible_user=urecho
-urecho-sp3 ansible_connection=ssh ansible_user=urecho
-yoon-rmbp13 ansible_connection=ssh ansible_user=yoon
+urecho-nuc6i7kyk
+urecho-sp3
+yoon-rmbp13
 

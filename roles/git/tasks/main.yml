@@ -1,10 +1,13 @@
 ---
 
-- name: Install diff-so-fancy
+- name: Install packages for git
   package:
-    name: diff-so-fancy
+    name: "{{ item }}"
     state: latest
   become: "{{ need_sudo }}"
+  with_items:
+    - tig
+    - diff-so-fancy
 
 - name: gitconfig
   copy: src=gitconfig dest={{ ansible_env.HOME }}/.gitconfig backup=yes

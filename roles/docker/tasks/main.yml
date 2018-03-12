@@ -1,0 +1,15 @@
+---
+
+- name: Install docker packages
+  package: name={{ item }} state=latest
+  with_items:
+    - docker
+  become: "{{ need_sudo }}"
+
+- name: Start docker service
+  systemd: name={{ item }} state=started enabled=yes
+  with_items:
+    - docker
+  when: ansible_os_family != 'Darwin'
+  become: "{{ need_sudo }}"
+

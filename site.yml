@@ -17,4 +17,5 @@
     - { role: tmux, tags: ['tmux'] }
     - { role: vim, tags: ['vim'] }
     - { role: git, tags: ['git'] }
+    - { role: docker, tags: ['docker'] }
 

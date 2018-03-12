@@ -6,6 +6,7 @@ system_monitor:
   - iftop
   - sysstat
   - nmon
+  - glances
 utils:
   - tmux
   - git

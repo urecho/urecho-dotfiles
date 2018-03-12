@@ -25,3 +25,9 @@
     - "{{ dev_java }}"
     - "{{ dev_misc }}"
 
+- name: Install Packages For Command Line from AUR
+  pacaur: 
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - leiningen

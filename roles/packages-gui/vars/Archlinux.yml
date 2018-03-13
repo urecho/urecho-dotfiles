@@ -7,4 +7,6 @@ steam: steam-native
 virtualbox: 
   - virtualbox
   - linux414-virtualbox-host-modules
+torrent:
+  - transmission-remote-gtk
 

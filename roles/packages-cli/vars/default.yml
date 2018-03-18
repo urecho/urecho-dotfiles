@@ -12,6 +12,7 @@ utils:
   - git
   - vim
   - vifm
+  - httpie
 dev_java:
   - jdk8-openjdk
   - openjdk8-doc

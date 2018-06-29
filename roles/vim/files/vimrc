@@ -37,6 +37,7 @@ Plugin 'mbbill/undotree'
 Plugin 'Yggdroot/indentLine'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'vimwiki/vimwiki'
+Plugin 'itchyny/calendar.vim'
 "Bundle 'ucompleteme'
 "Plugin 'Valloric/YouCompleteMe'
 
@@ -167,11 +168,18 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 
 " vimwiki
-let wiki = {}
-let wiki.path = '~/vimwiki/'
-let wiki.syntax = 'markdown'
-let wiki.ext = '.md'
+let wiki_personal = {}
+let wiki_personal.path = '~/Documents/vimwiki/urecho'
+let wiki_personal.syntax = 'markdown'
+let wiki_personal.ext = '.wiki'
 
-let g:vimwiki_list = [wiki]
+let g:vimwiki_list = [wiki_personal]
 let g:vimwiki_conceallevel = 0
+nmap <LocalLeader>wt :VimwikiTable<CR>
+
+" vimdiff
+if &diff
+    set t_Co=16
+    colorscheme evening
+endif
 

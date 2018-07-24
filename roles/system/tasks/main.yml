@@ -7,6 +7,7 @@
   package:
     name: python-psutil
     state: latest
+  when: ansible_os_family != 'Darwin'
 
 - name: Internationalization
   include_tasks: i18n.yml

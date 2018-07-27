@@ -8,9 +8,6 @@ ZSH_THEME="ys"
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
 
-# 10ms for key sequences
-KEYTIMEOUT=1
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -30,6 +27,9 @@ bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
+
+# 10ms for key sequences
+KEYTIMEOUT=1
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh

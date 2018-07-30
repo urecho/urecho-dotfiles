@@ -47,3 +47,7 @@ alias cb='xclip -sel clip'
 
 source $ZSH/oh-my-zsh.sh
 
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+source /usr/local/opt/autoenv/activate.sh
+

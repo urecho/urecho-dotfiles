@@ -44,6 +44,7 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias weather='curl wttr.in'
 alias cb='xclip -sel clip'
+alias gl20='git log --graph --pretty='\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all -20'
 
 source $ZSH/oh-my-zsh.sh
 

@@ -23,6 +23,7 @@
     ui = true
     pager = true
 [tig]
+    main-options = --all
     show-changes = true
     refresh-mode = periodic # Enum: manual, auto, after-command, periodic
     refresh-interval = 1

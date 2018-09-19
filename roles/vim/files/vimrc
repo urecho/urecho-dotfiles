@@ -52,6 +52,7 @@ let mapleader=","            " change the mapleader from \ to ,
 let g:mapleader=","            " change the mapleader from \ to ,
 
 " keymap
+inoremap jj <Esc>
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 nnoremap <silent> <F5> :UndotreeToggle<cr>
@@ -103,7 +104,7 @@ set noimd
 set pastetoggle=<F2>
 set hidden
 set scrolloff=5                 " scroll offset
-set timeoutlen=1000             " mapping delay
+set timeoutlen=500             " mapping delay
 set ttimeoutlen=10              " key code delay
 " Editing
 set wrap                        " wrap lines

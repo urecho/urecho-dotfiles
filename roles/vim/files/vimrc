@@ -44,6 +44,7 @@ Plugin 'itchyny/calendar.vim'
 call vundle#end()
 
 
+
 " General
 filetype plugin indent on    " load filetype-specific indent files
 syntax enable                " enable syntax processing
@@ -80,6 +81,8 @@ let Tlist_Exit_OnlyWindow = 0
 let Tlist_Auto_Open = 0
 let Tlist_GainFocus_On_ToggleOpen = 1
 let vim_markdown_preview_github=1            " github style markdown preview
+let g:indentLine_setConceal = 0
+
 
 " Settings
 set tenc=utf-8                 " 터미널 인코딩
@@ -118,6 +121,7 @@ set wildmenu            " visual autocomplete for command menu
 set lazyredraw          " redraw only when we need to.
 set showmatch           " highlight matching [{()}]
 set nocursorline        " highlight current line => slow!
+set conceallevel=0      " 
 " Searching
 set ignorecase          " case insensitive
 set smartcase           " ignore case if search pattern is all lowercase, case-sensitive otherwise
@@ -138,17 +142,6 @@ set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
 set foldmethod=indent   " fold based on indent level
-
-
-" ESC키를 누르면 한글 모드가 해제 "
-" 입력모드에서 이전 언어 설정 모드 유지 "
-" inoremap <ESC> <ESC>:set imdisable<CR>
-" nnoremap i :set noimd<CR>i
-" nnoremap I :set noimd<CR>I
-" nnoremap a :set noimd<CR>a
-" nnoremap A :set noimd<CR>A
-" nnoremap o :set noimd<CR>o
-" nnoremap O :set noimd<CR>O    
 
 
 

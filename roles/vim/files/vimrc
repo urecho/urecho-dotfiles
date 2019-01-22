@@ -3,6 +3,7 @@ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
+
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
@@ -17,12 +18,10 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Bundle 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
+Plugin 'vim-ripgrep'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Bundle 'kien/ctrlp.vim'
-Bundle 'rking/ag.vim'
 Bundle 'kana/vim-textobj-user'
 Bundle 'slim-template/vim-slim'
-Plugin 'Command-T'
 Plugin 'AutoComplPop'
 Plugin 'taglist-plus'
 Plugin 'L9'
@@ -32,6 +31,9 @@ Plugin 'Splice'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'workflowish'
 Plugin 'junegunn/fzf', { 'dir': '/usr/local/opt/fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'mbbill/undotree'
 Plugin 'Yggdroot/indentLine'
@@ -53,11 +55,16 @@ let mapleader=","            " change the mapleader from \ to ,
 let g:mapleader=","            " change the mapleader from \ to ,
 
 " keymap
-inoremap jj <Esc>
 nnoremap <leader><space> :nohlsearch<CR>
-nnoremap <silent> <C-n> :NERDTreeToggle<CR>
-nnoremap <silent> <F5> :UndotreeToggle<cr>
-nnoremap <silent> <F8> :TlistUpdate<CR> :TlistToggle<CR>
+nnoremap <leader>f :FZF<Cr>
+nnoremap <leader>r :Rg<Cr>
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <F5> :UndotreeToggle<CR>
+nnoremap <F8> :TlistUpdate<CR> :TlistToggle<CR>
+nnoremap <leader>g :Goyo<CR>
+nnoremap <C-a> ggVG
+nnoremap <leader>p "0p
+nnoremap <leader>= m'ggVG=`'
 " JSON formatting
 nnoremap <Leader>j :%!python -m json.tool<CR>
 " smooth scroll
@@ -69,11 +76,27 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 nnoremap <leader>l :ls<CR>
 nnoremap <leader>p :bp<CR>
 nnoremap <leader>n :bn<CR>
+nnoremap <leader>d :bp\|bd #<CR>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
 " Fast saving
-nnoremap <leader>w :w!<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :wqa<CR>
+" move between panes
+noremap <C-l> <C-w>l
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
 
 
-let NERDTreeWinPos = "left"                  " NERD Tree를 왼쪽에 생성
 let Tlist_Ctags_Cmd = "/usr/local/bin/ctags" " Tag list가 사용하는 ctags의 경로 설정
 let Tlist_Use_Right_Window = 1               " Tag list 창을 오른쪽으로 생성
 let Tlist_Inc_Winwidth = 0
@@ -154,6 +177,18 @@ else
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
+" nerdtree
+let NERDTreeWinPos = "left"                  " NERD Tree를 왼쪽에 생성
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+" autocmd vimenter * NERDTree
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists(“s:std_in”) | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
+
 " Persistent undo
 if has("persistent_undo")
     set undodir=~/.undodir/
@@ -162,6 +197,8 @@ endif
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+" let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 " vimwiki
 let wiki_personal = {}
@@ -178,4 +215,28 @@ if &diff
     set t_Co=16
     colorscheme evening
 endif
+
+" goyo
+function! s:goyo_enter()
+  silent !tmux set status off
+  silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  Limelight
+  " ...
+endfunction
+
+function! s:goyo_leave()
+  silent !tmux set status on
+  silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  set showmode
+  set showcmd
+  set scrolloff=5
+  Limelight!
+  " ...
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 

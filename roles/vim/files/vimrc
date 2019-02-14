@@ -62,6 +62,7 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <F5> :UndotreeToggle<CR>
 nnoremap <F8> :TlistUpdate<CR> :TlistToggle<CR>
 nnoremap <leader>g :Goyo<CR>
+nnoremap <leader>c :Calendar<CR>
 nnoremap <C-a> ggVG
 nnoremap <leader>p "0p
 nnoremap <leader>= m'ggVG=`'
@@ -89,7 +90,7 @@ nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
 " Fast saving
 nnoremap <leader>w :w<CR>
-nnoremap <leader>q :wqa<CR>
+nnoremap <leader>q :qa<CR>
 " move between panes
 noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
@@ -202,11 +203,12 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " vimwiki
 let wiki_personal = {}
-let wiki_personal.path = '~/Documents/vimwiki/urecho'
+let wiki_personal.path = '~/Documents/vimwiki'
 let wiki_personal.syntax = 'markdown'
-let wiki_personal.ext = '.wiki'
+let wiki_personal.ext = '.md'
 
 let g:vimwiki_list = [wiki_personal]
+let g:vimwiki_global_ext = 0
 let g:vimwiki_conceallevel = 0
 nmap <LocalLeader>wt :VimwikiTable<CR>
 

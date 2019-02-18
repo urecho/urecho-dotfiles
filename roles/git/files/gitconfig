@@ -16,12 +16,6 @@
     compactionHeuristic = true
 [interactive]
     diffFilter = diff-so-fancy
-[color]
-    status = auto
-    branch = auto
-    interactive = auto
-    ui = true
-    pager = true
 [tig]
     main-options = --all
     show-changes = true
@@ -29,6 +23,16 @@
     refresh-interval = 1
     status-show-untracked-dirs = true
     status-show-untracked-files = true
+[color]
+    diff = always
+    status = always
+    branch = always
+    interactive = always
+    grep = always
+    decorate = always
+    showbranch = always
+    ui = always
+    pager = true
 [color "diff-highlight"]
     oldNormal    = "red bold"
     oldHighlight = "red bold 52"

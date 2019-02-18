@@ -1,0 +1,6 @@
+# Set the colors.
+--colors=line:style:bold
+
+# Because who cares about case!?
+--smart-case
+

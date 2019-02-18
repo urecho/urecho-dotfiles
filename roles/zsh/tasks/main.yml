@@ -25,3 +25,13 @@
   git: repo=https://github.com/zsh-users/zsh-syntax-highlighting.git
        dest=~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
+- name: zsh custom lib dir 
+  file: 
+    path: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/lib"
+    state: directory
+
+- name: override misc.sh 
+  template: src=misc.zsh dest="{{ ansible_env.HOME }}/.oh-my-zsh/custom/lib/" backup=yes
+
+- name: ripgreprc
+  template: src=ripgreprc dest="{{ ansible_env.HOME }}/.ripgreprc" backup=yes

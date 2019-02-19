@@ -66,3 +66,12 @@ if [ -z "$TMUX" ]; then
     tmux attach -t default || tmux new -s default
 fi
 
+function watch2 () {
+    while :; do 
+        hdr="$(clear; date) >> $@\n\n"; 
+        res=$(eval $@ 2>&1); 
+        echo "$hdr$res"; 
+        sleep 1;  
+    done
+}
+

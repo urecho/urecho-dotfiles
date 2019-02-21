@@ -44,8 +44,6 @@ Plugin 'morhetz/gruvbox'
 
 call vundle#end()
 
-
-
 " General
 filetype plugin indent on    " load filetype-specific indent files
 syntax enable                " enable syntax processing
@@ -57,12 +55,15 @@ nnoremap <leader><space> :nohlsearch<CR>
 nnoremap <leader>f :FZF<Cr>
 nnoremap <leader>r :Rg<Cr>
 nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>N :NERDTreeFind<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>g :Goyo<CR>
 nnoremap <leader>c :Calendar<CR>
 vnoremap <leader>p "0p
 nnoremap <leader>= m'ggVG=`'
 nnoremap <C-a> ggVG
+nnoremap <F8> :!"%:p"<CR>
+nnoremap <F9> :enew \| read! "#:p"<CR>
 " JSON formatting
 nnoremap <Leader>j :%!python -m json.tool<CR>
 " smooth scroll
@@ -72,7 +73,10 @@ noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 " buffer moving
 nnoremap <leader>l :ls<CR>
+nnoremap <leader>< :bp<CR>
+nnoremap <leader>> :bn<CR>
 nnoremap <leader>d :bp\|bd #<CR>
+nnoremap <leader>D :bp\|bd! #<CR>
 nnoremap <Leader>1 :1b<CR>
 nnoremap <Leader>2 :2b<CR>
 nnoremap <Leader>3 :3b<CR>
@@ -121,13 +125,14 @@ set background=dark            " 하이라이팅 lihgt / dark
 set clipboard=unnamed
 set title                      " change the terminal's title
 set mouse=a
-set imdisable
-set noimd
 set pastetoggle=<F2>
 set hidden
 set scrolloff=5                 " scroll offset
 set timeoutlen=500             " mapping delay
 set ttimeoutlen=10              " key code delay
+" Input method in normal mode
+set noimd
+set langmap=ㅁa,ㅠb,ㅊc,ㅇd,ㄷe,ㄹf,ㅎg,ㅗh,ㅑi,ㅓj,ㅏk,ㅣl,ㅡm,ㅜn,ㅐo,ㅔp,ㅂq,ㄱr,ㄴs,ㅅt,ㅕu,ㅍv,ㅈw,ㅌx,ㅛy,ㅋz
 " Editing
 set wrap                        " wrap lines
 set backspace=eol,start,indent  " allow backspacing over everything in insert mode
@@ -148,14 +153,17 @@ set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 set nowrapscan          " 검색할 때 문서의 끝에서 처음으로 안돌아감
 " Indenting
-set tabstop=4           " number of visual spaces per TAB
-set softtabstop=4       " number of spaces in tab when editing
-set shiftwidth=4        " indenting is 4 spaces
+set tabstop=2           " number of visual spaces per TAB
+set softtabstop=2       " number of spaces in tab when editing
+set shiftwidth=2        " indenting is 4 spaces
 set expandtab           " tabs are spaces
 set autoindent          " turns it on
 set copyindent          " copy the previous indentation on autoindenting
 set smartindent         " does the right thing (mostly) in programs
 set cindent             " stricter rules for C programs
+autocmd FileType html       setlocal ts=4 sts=4 sw=4
+autocmd FileType javascript setlocal ts=4 sts=4 sw=4
+autocmd FileType java       setlocal ts=4 sts=4 sw=4
 " Folding
 set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default

@@ -2,7 +2,7 @@
     name = Yoonseok Woo
     email = urecho@gmail.com
 [core]
-    pager = diff-so-fancy | less -rFX
+    pager = less -RFX
     excludesfile = ~/.gitignore_global
 [push]
     default = simple
@@ -14,6 +14,9 @@
     tool = vimdiff
 [diff]
     compactionHeuristic = true
+[pager]
+    diff = diff-so-fancy | less -RFX
+    show = diff-so-fancy | less -RFX
 [interactive]
     diffFilter = diff-so-fancy
 [tig]

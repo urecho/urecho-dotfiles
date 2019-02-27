@@ -60,6 +60,7 @@ nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>g :Goyo<CR>
 nnoremap <leader>c :Calendar<CR>
 vnoremap <leader>p "0p
+nnoremap <Leader>b :let &background = ( &background == "dark"? "light" : "dark"  )<CR>
 nnoremap <leader>= m'ggVG=`'
 nnoremap <C-a> ggVG
 nnoremap <F8> :!"%:p"<CR>

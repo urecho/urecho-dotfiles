@@ -2,10 +2,7 @@
 system_monitor:
   - lsof
   - htop
-  - iotop
   - iftop
-  - sysstat
-  - nmon
   - glances
 utils:
   - tmux
@@ -13,14 +10,11 @@ utils:
   - vim
   - vifm
   - httpie
+  - fzf
+  - z
+  - ripgrep
 dev_java:
-  - jdk8-openjdk
-  - openjdk8-doc
-  - openjdk8-src
-  - visualvm
   - maven
-  - intellij-idea-community-edition
 dev_misc:
   - clojure
-  - dbeaver
 

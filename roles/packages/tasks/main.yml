@@ -1,0 +1,38 @@
+---
+
+- name: Platform independent variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "../vars/default.yml"
+
+- name: Platform dependent variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version | int}}.yml"
+    - "../vars/{{ ansible_distribution }}.yml"
+    - "../vars/{{ ansible_os_family }}.yml"
+
+- name: Install Common Packages
+  package: name={{ item }} state=latest
+  with_items:
+    - "{{ system_monitor }}"
+    - "{{ utils }}"
+    - "{{ dev_java }}"
+    - "{{ dev_misc }}"
+
+- name: Install GUI Packages
+  package: name={{ item }} state=latest
+  with_items:
+    - "{{ chromium }}"
+    - "{{ vlc }}"
+    - "{{ steam }}"
+    - "{{ torrent }}"
+  ignore_errors: yes
+
+- name: Arch Packages
+  include_tasks: arch.yml
+  when: ansible_os_family == 'Archlinux'
+
+- name: Macos Packages
+  include_tasks: macos.yml
+  when: ansible_os_family == 'Darwin'

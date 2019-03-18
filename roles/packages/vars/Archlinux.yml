@@ -1,0 +1,38 @@
+---
+system_monitor:
+  - lsof
+  - htop
+  - iotop
+  - iftop
+  - sysstat
+  - nmon
+  - glances
+utils:
+  - tmux
+  - git
+  - vim
+  - vifm
+  - httpie
+  - fzf
+dev_java:
+  - jdk8-openjdk
+  - openjdk8-doc
+  - openjdk8-src
+  - visualvm
+  - maven
+  - intellij-idea-community-edition
+dev_misc:
+  - clojure
+  - dbeaver
+
+chromium: chromium
+vlc: 
+  - vlc
+  - qt4
+steam: steam-native
+virtualbox: 
+  - virtualbox
+  - linux414-virtualbox-host-modules
+torrent:
+  - transmission-remote-gtk
+

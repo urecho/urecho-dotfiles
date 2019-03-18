@@ -1,0 +1,11 @@
+---
+
+- name: Update package manager cache for Macos
+  homebrew:
+    update_homebrew: yes
+
+- name: Install fzf
+  shell: $(brew --prefix)/opt/fzf/install
+  args:
+    executable: /bin/bash
+

@@ -11,8 +11,7 @@
         - gem_executable
   roles:
     - { role: system, become: "{{ need_sudo }}", tags: ['system'] }
-    - { role: packages-cli, become: "{{ need_sudo }}", tags: ['packages'] }
-    - { role: packages-gui, become: "{{ need_sudo }}", tags: ['packages'] }
+    - { role: packages, become: "{{ need_sudo }}", tags: ['packages'] }
     - { role: zsh, tags: ['zsh'] }
     - { role: tmux, tags: ['tmux'] }
     - { role: vim, tags: ['vim'] }

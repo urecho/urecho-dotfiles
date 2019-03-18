@@ -1,0 +1,8 @@
+---
+chromium: caskroom/cask/chromium
+vlc: caskroom/cask/vlc
+steam: caskroom/cask/steam
+virtualbox: 
+  - caskroom/cask/virtualbox
+  - caskroom/cask/virtualbox-extension-pack
+

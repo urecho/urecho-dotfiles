@@ -34,6 +34,7 @@ Plugin 'junegunn/fzf', { 'dir': '/usr/local/opt/fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
+Plugin 'junegunn/vim-easy-align'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'mbbill/undotree'
 Plugin 'Yggdroot/indentLine'
@@ -96,6 +97,9 @@ noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
+" EasyAlign
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 
 let Tlist_Ctags_Cmd = "/usr/local/bin/ctags" " Tag list가 사용하는 ctags의 경로 설정

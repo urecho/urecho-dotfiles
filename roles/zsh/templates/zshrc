@@ -50,24 +50,32 @@ alias gla='git log --graph --pretty='\''%Cred%h%Creset -%C(yellow)%d%Creset %s %
 
 source $ZSH/oh-my-zsh.sh
 
+# os dependent
+[ -f "${HOME}/.zshrc-`uname`" ] && source "${HOME}/.zshrc-`uname`"
+
+
+# init pyenv
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 source /usr/local/opt/autoenv/activate.sh
 
-# z
+# init z
 [[ -r "/usr/local/etc/profile.d/z.sh"  ]] && . /usr/local/etc/profile.d/z.sh
 [[ -r "/usr/share/z/z.sh"  ]] && source /usr/share/z/z.sh
 
-# fzf
+# init fzf
 [ -f ~/.fzf.zsh  ] && source ~/.fzf.zsh
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 export FZF_DEFAULT_OPTS='--height 40% --border --multi --preview="head -10 {+}"'
 
+# init rbenv
+eval "$(rbenv init -)"
+
 # tmux as default
-# if [ -z "$TMUX" ]; then
-#     tmux attach -t default || tmux new -s default
-# fi
+#if [ -z "$TMUX" ]; then
+#    tmux attach -t default || tmux new -s default
+#fi
 
 function watch2 () {
     while :; do 

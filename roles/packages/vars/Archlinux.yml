@@ -4,12 +4,14 @@ system_monitor:
   - htop
   - iotop
   - iftop
+  - atop
   - sysstat
   - nmon
   - glances
 utils:
   - tmux
   - git
+  - tig
   - vim
   - vifm
   - httpie

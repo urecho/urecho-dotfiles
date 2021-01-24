@@ -5,7 +5,9 @@
     pager = less -RFX
     excludesfile = ~/.gitignore_global
 [push]
-    default = simple
+    default = current
+[pull]
+    ff = only
 [alias]
     last = log -p -1 HEAD
     history = log --follow --patch -- 

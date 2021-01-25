@@ -9,10 +9,14 @@
   with_items:
     - "{{ arch_pacman }}"
 
-- name: Install Arch Packages from AUR
-  pacaur: 
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - "{{ arch_aur }}"
-    - leiningen
+      # - name: Install Arch Packages from AUR
+      #   pacaur: 
+      #     name: "{{ item }}"
+      #     state: present
+      #   with_items:
+      #     - "{{ arch_aur }}"
+      #     - leiningen
+      #
+- name: xprofile
+  copy: src=xprofile dest={{ ansible_env.HOME }}/.xprofile backup=yes
+

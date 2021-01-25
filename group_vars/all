@@ -1,4 +1,4 @@
 ---
 need_sudo: yes
-zsh_path: /bin/zsh
+zsh_path: /usr/bin/zsh
 gem_executable: /usr/bin/gem

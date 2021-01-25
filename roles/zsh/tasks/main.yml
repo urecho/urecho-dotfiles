@@ -5,7 +5,7 @@
     name: "{{ ansible_env.USER }}" 
     shell: "{{ zsh_path }}"
   when: zsh_path is defined
-  ignore_errors: yes
+  become: yes
 
 - name: copy zshrc
   template: src=zshrc dest={{ ansible_env.HOME }}/.zshrc backup=yes

@@ -20,14 +20,14 @@
     - "{{ dev_java }}"
     - "{{ dev_misc }}"
 
-- name: Install GUI Packages
-  package: name={{ item }} state=latest
-  with_items:
-    - "{{ chromium }}"
-    - "{{ vlc }}"
-    - "{{ steam }}"
-    - "{{ torrent }}"
-  ignore_errors: yes
+      # - name: Install GUI Packages
+      #   package: name={{ item }} state=latest
+      #   with_items:
+      #     - "{{ chromium }}"
+      #     - "{{ vlc }}"
+      #     - "{{ steam }}"
+      #     - "{{ torrent }}"
+      #   ignore_errors: yes
 
 - name: Arch Packages
   include_tasks: arch.yml

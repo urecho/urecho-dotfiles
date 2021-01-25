@@ -16,7 +16,12 @@ utils:
   - vifm
   - httpie
   - fzf
+  - z
+  - ripgrep
 dev_java:
+  - jdk11-openjdk
+  - openjdk11-doc
+  - openjdk11-src
   - jdk8-openjdk
   - openjdk8-doc
   - openjdk8-src
@@ -26,6 +31,9 @@ dev_java:
 dev_misc:
   - clojure
   - dbeaver
+arch_pacman:
+  - uim
+  - adobe-source-han-sans-kr-fonts
 
 chromium: chromium
 vlc: 

@@ -13,17 +13,14 @@
 - name: clone oh-my-zsh repo
   git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest={{ ansible_env.HOME }}/.oh-my-zsh
 
-- name: alias-tips
-  git: repo=https://github.com/djui/alias-tips.git
-       dest=~/.oh-my-zsh/custom/plugins/alias-tips
-
-- name: zsh-autosuggestions
-  git: repo=https://github.com/zsh-users/zsh-autosuggestions.git
-       dest=~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-
-- name: zsh-syntax-highlighting
-  git: repo=https://github.com/zsh-users/zsh-syntax-highlighting.git
-       dest=~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+- name: custom plugins 
+  git: repo=https://github.com/{{ item.account }}/{{ item.repo }}.git
+       dest=~/.oh-my-zsh/custom/plugins/{{ item.repo }}
+  with_items:
+    - { account: "djui", repo: "alias-tips" }
+    - { account: "zsh-users", repo: "zsh-autosuggestions" }
+    - { account: "zsh-users", repo: "zsh-syntax-highlighting" }
+    - { account: "Aloxaf", repo: "fzf-tab" }
 
 - name: zsh custom lib dir 
   file: 

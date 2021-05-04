@@ -20,10 +20,10 @@
 - name: tmuxinator directory
   file: path={{ ansible_env.HOME }}/.tmuxinator state=directory
 
-- name: tmuxinator
-  copy: src=tmuxinator/{{ item }}.yml dest={{ ansible_env.HOME }}/.tmuxinator/ backup=yes
-  with_items:
-    - urecho-ansible
+  #- name: tmuxinator
+  #  copy: src=tmuxinator/{{ item }}.yml dest={{ ansible_env.HOME }}/.tmuxinator/ backup=yes
+  #  with_items:
+  #    - urecho-ansible
 
 - name: clone tmux plugin manager
   git: repo=https://github.com/tmux-plugins/tpm

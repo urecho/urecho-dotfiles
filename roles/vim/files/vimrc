@@ -35,6 +35,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'junegunn/gv.vim'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'mbbill/undotree'
 Plugin 'Yggdroot/indentLine'
@@ -42,6 +43,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'vimwiki/vimwiki'
 Plugin 'itchyny/calendar.vim'
 Plugin 'morhetz/gruvbox'
+Plugin 'udalov/kotlin-vim'
 
 call vundle#end()
 
@@ -59,6 +61,8 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>N :NERDTreeFind<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>g :Goyo<CR>
+nnoremap <leader>Gl :Glog<CR>:copen<CR>
+nnoremap <leader>Gd :Gvdiff<CR>
 nnoremap <leader>c :Calendar<CR>
 vnoremap <leader>p "0p
 nnoremap <Leader>b :let &background = ( &background == "dark"? "light" : "dark"  )<CR>
@@ -66,8 +70,16 @@ nnoremap <leader>= m'ggVG=`'
 nnoremap <C-a> ggVG
 nnoremap <F8> :!"%:p"<CR>
 nnoremap <F9> :enew \| read! "#:p"<CR>
+" very magic default
+"nnoremap / /\v
+"vnoremap / /\v
+"cnoremap %s/ %smagic/
+"cnoremap \>s/ \>smagic/
+"nnoremap :g/ :g/\v
+"nnoremap :g// :g//
 " JSON formatting
-nnoremap <Leader>j :%!python -m json.tool<CR>
+nnoremap <Leader>j :%!jq '.'<CR>
+vnoremap <Leader>j :'<,'>!jq '.'<CR>
 " smooth scroll
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
@@ -100,6 +112,9 @@ noremap <C-k> <C-w>k
 " EasyAlign
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+" keep selection after indent
+vnoremap > >gv
+vnoremap < <gv
 
 
 let Tlist_Ctags_Cmd = "/usr/local/bin/ctags" " Tag list가 사용하는 ctags의 경로 설정
@@ -169,6 +184,7 @@ set cindent             " stricter rules for C programs
 autocmd FileType html       setlocal ts=4 sts=4 sw=4
 autocmd FileType javascript setlocal ts=4 sts=4 sw=4
 autocmd FileType java       setlocal ts=4 sts=4 sw=4
+autocmd FileType yaml,yml   setlocal ts=2 sts=2 sw=2 expandtab
 " Folding
 set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default
@@ -189,7 +205,7 @@ endif
 " nerdtree
 let NERDTreeWinPos = "left"                  " NERD Tree를 왼쪽에 생성
 let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeMinimalUI = 1
+let NERDTreeMinimalUI = 0
 let NERDTreeDirArrows = 1
 " autocmd vimenter * NERDTree
 " autocmd StdinReadPre * let s:std_in=1
@@ -211,7 +227,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " vimwiki
 let wiki_personal = {}
-let wiki_personal.path = '~/Documents/vimwiki'
+let wiki_personal.path = '~/Workspace/wiki'
 let wiki_personal.syntax = 'markdown'
 let wiki_personal.ext = '.md'
 

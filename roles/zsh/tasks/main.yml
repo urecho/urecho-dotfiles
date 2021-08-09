@@ -6,18 +6,31 @@
     shell: "{{ zsh_path }}"
   when: zsh_path is defined
   become: yes
+  ignore_errors: yes
 
 - name: copy zshrc
-  template: src=zshrc dest={{ ansible_env.HOME }}/.zshrc backup=yes
+  template: 
+    src: "{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.{{ item }}"
+    backup: yes
+  with_items:
+    - zshrc
 
 - name: clone oh-my-zsh repo
   git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest={{ ansible_env.HOME }}/.oh-my-zsh
+
+- name: clone themes
+  git : repo=https://github.com/{{ item.account }}/{{ item.repo }}.git 
+        dest={{ ansible_env.HOME }}/.oh-my-zsh/themes/{{ item.dest }}
+  with_items:
+    - { account: "dracula", repo: "zsh", dest: "dracula" }
+    - { account: "romkatv", repo: "powerlevel10k", dest: "powerlevel10k" }
+    - { account: "denysdovhan", repo: "spaceship-prompt", dest: "spaceship" }
 
 - name: custom plugins 
   git: repo=https://github.com/{{ item.account }}/{{ item.repo }}.git
        dest=~/.oh-my-zsh/custom/plugins/{{ item.repo }}
   with_items:
-    - { account: "djui", repo: "alias-tips" }
     - { account: "zsh-users", repo: "zsh-autosuggestions" }
     - { account: "zsh-users", repo: "zsh-syntax-highlighting" }
     - { account: "Aloxaf", repo: "fzf-tab" }

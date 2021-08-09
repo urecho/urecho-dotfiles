@@ -1,9 +1,13 @@
+# zmodload zsh/zprof
+
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="ys"
+
+ZSH_ALIAS_FINDER_AUTOMATIC=true
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -12,7 +16,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow github alias-tips mvn colorize colored-man-pages tmux tmuxinator vi-mode docker brew osx sublime zsh-syntax-highlighting jsontools zsh-autosuggestions zsh-syntax-highlighting ansible fzf-tab)
+plugins=(git git-flow github alias-finder mvn colorize colored-man-pages tmux tmuxinator vi-mode docker brew osx sublime zsh-syntax-highlighting jsontools zsh-autosuggestions zsh-syntax-highlighting ansible fzf-tab)
 
 # User configuration
 export LANG=en_US.UTF-8
@@ -65,8 +69,8 @@ source $ZSH/oh-my-zsh.sh
 
 # init pyenv
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-[ -f /usr/local/opt/autoenv/activate.sh  ] && source /usr/local/opt/autoenv/activate.sh
+# eval "$(pyenv virtualenv-init -)"
+# [ -f /usr/local/opt/autoenv/activate.sh  ] && source /usr/local/opt/autoenv/activate.sh
 
 # init z
 [[ -r "/usr/local/etc/profile.d/z.sh"  ]] && . /usr/local/etc/profile.d/z.sh
@@ -82,14 +86,17 @@ export FZF_DEFAULT_OPTS='--height 40% --border --multi --preview="head -10 {+}"'
 eval "$(rbenv init -)"
 
 # init nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # tmux as default
 #if [ -z "$TMUX" ]; then
 #    tmux attach -t default || tmux new -s default
 #fi
+
+autoload -U compinit
+compinit
 
 function watch2 () {
     while :; do 

@@ -16,7 +16,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow github alias-finder mvn colorize colored-man-pages tmux tmuxinator vi-mode docker brew osx sublime zsh-syntax-highlighting jsontools zsh-autosuggestions zsh-syntax-highlighting ansible fzf-tab)
+plugins=(git git-flow github alias-finder mvn colorize colored-man-pages tmux tmuxinator vi-mode docker brew macos sublime zsh-syntax-highlighting jsontools zsh-autosuggestions zsh-syntax-highlighting ansible fzf-tab)
 
 # User configuration
 export LANG=en_US.UTF-8
@@ -106,5 +106,18 @@ function watch2 () {
         sleep 1;  
     done
 }
+
+
+# docker alias
+function dkex-fn {
+  docker exec -it $1 ${2:-bash}
+}
+
+function dkl-fn {
+	docker logs -f --tail=100 $1
+}
+
+alias dkex=dkex-fn
+alias dkl=dkl-fn
 
 
